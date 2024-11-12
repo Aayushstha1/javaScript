@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number List to Array</title>
+</head>
+<body>
+    <h1>Enter a List of Numbers</h1>
+    <input type="text" id="numberInput" placeholder="Enter numbers here">
+    <button onclick="storeNumbers()">Submit</button>
+
+    <h2>Stored Array:</h2>
+    <p id="arrayOutput"></p>
+
+    <h2>Sum of Array Elements:</h2>
+    <p id="sumOutput"></p>
+
+    <h2>Calculation Completed At:</h2>
+    <p id="dateOutput"></p>
+
+
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+
+
+    <button onclick="openNewWindow()">Open New Window</button>
+
+    <script>
+
+        //store the array
+
+        function storeNumbers() {
+            let input = document.getElementById("numberInput").value;
+            let numberArray = input.split(',').map(Number);
+
+            document.getElementById("arrayOutput").textContent = `Array: [${numberArray.join(', ')}]`;
+
+            let sum = calculateSum(numberArray);
+            document.getElementById("sumOutput").textContent = `Sum: ${sum}`;
+
+            displayCurrentDateTime();
+        }
+
+
+
+        // function to calculate sum of array
+        function calculateSum(array) {
+            let sum = 0;
+            array.forEach(function(number) {
+                sum += number;
+            });
+            return sum;
+        }
+
+
+
+        //function to display current date
+        function displayCurrentDateTime() {
+            let currentDate = new Date();
+            let formattedDate = currentDate.toLocaleString();
+            document.getElementById("dateOutput").textContent = `Date and Time: ${formattedDate}`;
+        }
+
+
+
+        //function to change background color
+         function changeBackgroundColor() {
+            document.body.style.backgroundColor = "lightblue";
+        }
+
+        let newWindow = null;
+
+
+
+
+        // Function to open a new window
+        function openNewWindow() {
+
+
+            // Open a new window with specific dimensions
+            newWindow = window.open("", "newWindow", "width=400,height=300");
+            if (newWindow) {
+                newWindow.document.write("<h2>New Window</h2><p>This is a new window opened by JavaScript.</p>");
+                newWindow.document.write("<button onclick='window.close()'>Close Window</button>");
+            }
+        }
+
+
+        
+
+        // Function to close the new window
+        function closeNewWindow() {
+            if (newWindow && !newWindow.closed) {
+                newWindow.close();
+                newWindow = null;
+            } else {
+                alert("Closed");
+            }
+        }
+    </script>
+</body>
+</html>

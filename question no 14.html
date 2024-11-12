@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Filtering</title>
+    <style>
+        .item { display: inline-block; margin: 10px; border: 1px solid #ccc; padding: 10px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<h2>Filters</h2>
+<!-- Filter by Category -->
+<select id="category-filter">
+    <option value="all">All Categories</option>
+    <option value="electronics">Electronics</option>
+    <option value="fashion">Fashion</option>
+    <option value="home">Home</option>
+</select>
+
+<!-- Filter by Price Range -->
+<input type="range" id="price-range" min="0" max="500" step="50" value="500">
+<label for="price-range">Price up to: RS.<span id="price-value">500</span></label>
+
+<h2>Items</h2>
+<div id="items-container">
+    <div class="item" data-category="electronics" data-price="400">Laptop - 40000</div>
+    <div class="item" data-category="fashion" data-price="50">T-shirt - 500</div>
+    <div class="item" data-category="home" data-price="150">Chair - 150</div>
+    <div class="item" data-category="electronics" data-price="100">Headphones - 100</div>
+    <div class="item" data-category="fashion" data-price="200">Jacket - 1200</div>
+    <div class="item" data-category="home" data-price="350">Table - 9350</div>
+</div>
+
+<script src="questiomn-no-14.js"></script>
+</body>
+</html>
