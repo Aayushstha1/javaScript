@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant List</title>
+</head>
+<body>
+    <h1>Registered Participants</h1>
+    <ul id="participant-list"></ul>
+
+    <script>
+        const participants = ["Hari", "sam", "SITA" , "Amit"]; 
+
+        participants.forEach(name => {
+            document.getElementById("participant-list").innerHTML += "<li>" + name + "</li>";
+        
+        });
+    </script>
+</body>
+</html>

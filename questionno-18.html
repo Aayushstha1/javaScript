@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Registration</title>
+</head>
+<body>
+    <h1>Participant Registration</h1>
+
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="registerParticipant()">Register</button>
+
+    <h2>Registered Participants</h2>
+    <ul id="participant-list"></ul>
+
+    <p id="confirmation-message"></p>
+
+    <script>
+        function registerParticipant() {
+            const name = document.getElementById("name").value; 
+            const message = document.getElementById("confirmation-message"); 
+            const list = document.getElementById("participant-list"); 
+
+            if (name === "") { 
+                alert("Please enter a name!");
+                return;
+            }
+
+            const listItem = document.createElement("li");
+            listItem.textContent = name;
+            list.appendChild(listItem);
+
+            message.textContent = `${name} has been registered!`;
+
+            document.getElementById("name").value = "";
+        }
+    </script>
+</body>
+</html>
